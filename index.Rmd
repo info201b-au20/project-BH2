@@ -9,26 +9,15 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##An introduction of the problem domain and dataset (feel free to borrow language you used in your brainstorm assignment)
+##Write an introductory paragraph explaining the domain/data set (feel free to borrow from the project proposal)
+#milli
 
+##Write a summary paragraph that includes information calculated by your summary information function
+#christian
 
-##A paragraph of summary information, citing at least 5 values calculated from the data
+##Render your table and describe pertinent observations found in it
+#patrick 
 
-
-##A table of  aggregated data (e.g., that has been "grouped" by one of your features)
-
-
-##Three charts that display information from the data (what you visualize is up to you). 
-```{r}
-# chart 1
-```
-
-```{r}
-# chart 2
-```
-
-```{r}
-# chart 3
-```
-
+##Describe the purpose of each chart (e.g., "this chart was intended to show the relationship between..."), render each chart, and describe pertinent observations found in each chart
+#evan
 
