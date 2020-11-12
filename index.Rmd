@@ -12,7 +12,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ##Write an introductory paragraph explaining the domain/data set (feel free to borrow from the project proposal)
 #milli
 
-Our domain is the Australian bushfires that occured at the beginning of 2020. We found a data set that compiled multiple sources ranging from NASA to the Australian Government and cleaned this data using a script. This dataset was fairly large, with 1500 rows and 30 columns of data. We downloaded the dataset from the tidy Tuesday dataset sourced from NASA and the New South Wales Rural Fire Service courtesy of Dean Marchiori. As a team, we felt particularly drawn to this dataset due to the large impact climate change is having on our world. We felt that we could ask meaningful questions of this dataset that pertain to climate change, such as what time of year do the most fires occur and why might that be? Where geographically do the fires occur and which populations are most impacted by this? How many lives and how much land is lost as a result of the fires, and how much flora/fauna is destroyed? As climate change gets worse, knowing the answers to these questions and being able to communicate the sheer extent to which fires are destroying lives becomes increasingly important in terms of being able to effect policy change and start a global conversation on the importance of preventative measures and harm reduction methods.
+Our domain is the Australian bushfires that occured at the beginning of 2020. We found a data set that compiled multiple sources ranging from NASA 
+to the Australian Government and cleaned this data using a script. This dataset was fairly large, with 1500 rows and 30 columns of data.
+We downloaded the dataset from the tidy Tuesday dataset sourced from NASA and the New South Wales Rural Fire Service courtesy of Dean Marchiori. 
+As a team, we felt particularly drawn to this dataset due to the large impact climate change is having on our world. We felt that we could ask meaningful 
+questions of this dataset that pertain to climate change, such as what time of year do the most fires occur and why might that be?
+Where geographically do the fires occur and which populations are most impacted by this? How many lives and how much land is lost as a result of the fires, 
+and how much flora/fauna is destroyed? As climate change gets worse, knowing the answers to these questions and being able to communicate the sheer extent
+to which fires are destroying lives becomes increasingly important in terms of being able to effect policy change and start a global conversation 
+on the importance of preventative measures and harm reduction methods.
 
 ##Write a summary paragraph that includes information calculated by your summary information function
 #christian
