@@ -10,10 +10,61 @@ num_diff_places <- unique(temperatures$city_name)
 
 # How has temperature patterns altered over the course of decades?
 
-perth_by_years<- temperatures %>% 
+# City of Perth temperatures
+perth_avg_temp_by_years<- temperatures %>% 
   mutate(temperatures, year = format(date, "%Y")) %>% 
-  group_by(city_name == "PERTH", year) %>% 
-  summarise(mean_temp = mean(temperature))
+  filter(city_name == "PERTH") %>% 
+  group_by(year) %>% 
+  summarise(mean_temp = mean(temperature, na.rm = T))
+
+# City of Port temperatures
+
+port_avg_temp_by_years<- temperatures %>% 
+  mutate(temperatures, year = format(date, "%Y")) %>% 
+  filter(city_name == "PORT") %>% 
+  group_by(year) %>% 
+  summarise(mean_temp = mean(temperature, na.rm = T))
+
+# City of Kent temperatures
+
+kent_avg_temp_by_years<- temperatures %>% 
+  mutate(temperatures, year = format(date, "%Y")) %>% 
+  filter(city_name == "KENT") %>% 
+  group_by(year) %>% 
+  summarise(mean_temp = mean(temperature, na.rm = T))
+
+# City of Brisbane temperature
+
+brisbane_avg_temp_by_years<- temperatures %>% 
+  mutate(temperatures, year = format(date, "%Y")) %>% 
+  filter(city_name == "BRISBANE") %>% 
+  group_by(year) %>% 
+  summarise(mean_temp = mean(temperature, na.rm = T))
+
+# City of Sydney temperature
+
+sydney_avg_temp_by_years<- temperatures %>% 
+  mutate(temperatures, year = format(date, "%Y")) %>% 
+  filter(city_name == "SYDNEY") %>% 
+  group_by(year) %>% 
+  summarise(mean_temp = mean(temperature, na.rm = T))
+
+# City of Canberra temperature
+
+canberra_avg_temp_by_years<- temperatures %>% 
+  mutate(temperatures, year = format(date, "%Y")) %>% 
+  filter(city_name == "CANBERRA") %>% 
+  group_by(year) %>% 
+  summarise(mean_temp = mean(temperature, na.rm = T))
+
+# City of Melbourne temperature
+
+melbourne_avg_temp_by_years<- temperatures %>% 
+  mutate(temperatures, year = format(date, "%Y")) %>% 
+  filter(city_name == "MELBOURNE") %>% 
+  group_by(year) %>% 
+  summarise(mean_temp = mean(temperature, na.rm = T))
+
 # What does distribution of temperatures tell us about global warming?
 
 # Are there any amount of fire occurences that correlate with 
