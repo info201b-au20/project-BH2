@@ -3,73 +3,67 @@
 library(tidyverse)
 library(ggplot2)
 
+uniq_cities <- unique(rainfall$city_name, incomparables = FALSE)
+Perth
+2
+Adelaide
+3
+Brisbane
+4
+Sydney
+5
+Canberra
+6
+Melbourne
+
 # City of Perth rainfall
 perth_avg_rain_by_years<- rainfall %>% 
-  filter(city_name == "PERTH") %>% 
-  filter(rainfall == "max") %>% 
+  filter(city_name == "Perth") %>% 
   group_by(year) %>% 
-  summarise(mean_rain = mean(rainerature, na.rm = T))
+  summarise(mean_rain = mean(rainfall, na.rm = T))
 
-# City of Port rainfall
+# City of Adelaide rainfall
 
-port_avg_rain_by_years<- rainfall %>% 
-  mutate(rainfall, year = format(date, "%Y")) %>% 
-  filter(city_name == "PORT") %>% 
-  filter(rain_type == "max") %>% 
+Adelaide_avg_rain_by_years<- rainfall %>% 
+  filter(city_name == "Adelaide") %>% 
   group_by(year) %>% 
-  summarise(mean_rain = mean(rainerature, na.rm = T))
+  summarise(mean_rain = mean(rainfall, na.rm = T))
 
-# City of Kent rainfall
-
-kent_avg_rain_by_years<- rainfall %>% 
-  mutate(rainfall, year = format(date, "%Y")) %>% 
-  filter(city_name == "KENT") %>% 
-  filter(rain_type == "max") %>% 
-  group_by(year) %>% 
-  summarise(mean_rain = mean(rainerature, na.rm = T))
-
-# City of Brisbane rainerature
+# City of Brisbane rainfall
 
 brisbane_avg_rain_by_years<- rainfall %>% 
-  mutate(rainfall, year = format(date, "%Y")) %>% 
-  filter(city_name == "BRISBANE") %>% 
-  filter(rain_type == "max") %>% 
+  filter(city_name == "Brisbane") %>% 
   group_by(year) %>% 
-  summarise(mean_rain = mean(rainerature, na.rm = T))
+  summarise(mean_rain = mean(rainfall, na.rm = T))
 
-# City of Sydney rainerature
+# City of Sydney rainfall
 
-sydney_avg_rain_by_years<- rainfall %>% 
-  mutate(rainfall, year = format(date, "%Y")) %>% 
-  filter(city_name == "SYDNEY") %>% 
-  filter(rain_type == "max") %>% 
+Sydney_avg_rain_by_years<- rainfall %>% 
+  filter(city_name == "Sydney") %>% 
   group_by(year) %>% 
-  summarise(mean_rain = mean(rainerature, na.rm = T))
+  summarise(mean_rain = mean(rainfall, na.rm = T))
 
-# City of Canberra rainerature
+# City of Canberra rainfall
 
-canberra_avg_rain_by_years<- rainfall %>% 
-  mutate(rainfall, year = format(date, "%Y")) %>% 
-  filter(city_name == "CANBERRA") %>% 
+Canberra_avg_rain_by_years<- rainfall %>% 
+  filter(city_name == "Canberra") %>% 
   group_by(year) %>% 
-  summarise(mean_rain = mean(rainerature, na.rm = T))
+  summarise(mean_rain = mean(rainfall, na.rm = T))
 
-# City of Melbourne rainerature
+# City of Melbourne rainfall
 
-melbourne_avg_rain_by_years <- rainfall %>% 
-  mutate(rainfall, year = format(date, "%Y")) %>% 
-  filter(city_name == "MELBOURNE") %>% 
-  filter(rain_type == "max") %>% 
+Melbourne_avg_rain_by_years<- rainfall %>% 
+  filter(city_name == "Melbourne") %>% 
   group_by(year) %>% 
-  summarise(mean_rain = mean(rainerature, na.rm = T))
+  summarise(mean_rain = mean(rainfall, na.rm = T))
 
-# all rainerature averages
+# all rainfall averages
 
 all_avg_rain_by_years <- rainfall %>% 
   mutate(rainfall, year = format(date, "%Y")) %>%
   group_by(city_name, year) %>% 
   filter(rain_type == "max") %>% 
-  summarise(mean_rain = mean(rainerature, na.rm = T))
+  summarise(mean_rain = mean(rainfall, na.rm = T))
 
 rainfall_year_chart <- ggplot(rainfall, aes(x = year, y = rainfall)) + geom_point(size=2, shape=23)
 ggsave()

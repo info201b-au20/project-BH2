@@ -50,7 +50,7 @@ source("scripts/chart_1.R")
 ```{r echo=FALSE, include=FALSE}
 source("scripts/chart_3.R")
 ```
-## Chart 2 Description
+## Chart 3 Description
 - 
 ```{r echo=FALSE}
 rainfall_year_chart
