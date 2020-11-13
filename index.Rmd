@@ -23,7 +23,7 @@ to which fires are destroying lives becomes increasingly important in terms of b
 on the importance of preventative measures and harm reduction methods.
 
 ##Write a summary paragraph that includes information calculated by your summary information function
-#christian
+#milli
 
 ##Render your table and describe pertinent observations found in it
 #patrick 
