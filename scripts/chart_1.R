@@ -88,13 +88,9 @@ p = ggplot() +
   xlab('years') +
   ylab('temperature')
 
-print(p)
-
-ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
+temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
   geom_point(mapping = aes(x = year, y = mean_temp, color = city_name)) +
   labs(x = "year", y = "mean temperature", title = " Mean temperature")
-
-ggsave()
 
 # What does distribution of temperatures tell us about global warming?
 # find difference between min date max temp and max date max temp
@@ -124,10 +120,8 @@ print_temp_diff <- function(temp_diff){
   } else {
     sentence <- paste("The temperature has decreased a total of", sum_val, " degrees")
   }
-  print(sentence)
 }
 
-print_temp_diff(temp_diff)
 
 # The prompts below should probably be answered in another script as this 
 # script is only for displaying charts
