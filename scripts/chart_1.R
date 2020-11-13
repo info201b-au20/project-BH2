@@ -64,15 +64,73 @@ canberra_avg_temp_by_years<- temperatures %>%
 
 # City of Melbourne temperature
 
-melbourne_avg_temp_by_years<- temperatures %>% 
+melbourne_avg_temp_by_years <- temperatures %>% 
   mutate(temperatures, year = format(date, "%Y")) %>% 
   filter(city_name == "MELBOURNE") %>% 
   filter(temp_type == "max") %>% 
   group_by(year) %>% 
   summarise(mean_temp = mean(temperature, na.rm = T))
 
-# What does distribution of temperatures tell us about global warming?
+# all temperature averages
 
+all_avg_temp_by_years <- temperatures %>% 
+  mutate(temperatures, year = format(date, "%Y")) %>%
+  group_by(city_name, year) %>% 
+  filter(temp_type == "max") %>% 
+  summarise(mean_temp = mean(temperature, na.rm = T))
+
+
+# plot temperatures and fire count
+
+p = ggplot() + 
+  geom_line(data = brisbane_avg_temp_by_years, aes(x = year, y = mean_temp), color = "blue") +
+  geom_line(data = canberra_avg_temp_by_years, aes(x = year, y = mean_temp), color = "red") +
+  xlab('years') +
+  ylab('temperature')
+
+print(p)
+
+ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
+  geom_point(mapping = aes(x = year, y = mean_temp, color = city_name)) +
+  labs(x = "year", y = "mean temperature", title = " Mean temperature")
+
+ggsave()
+
+# What does distribution of temperatures tell us about global warming?
+# find difference between min date max temp and max date max temp
+
+max_temps_current <- temperatures %>% 
+  mutate(temperatures, year = format(date, "%Y")) %>% 
+  filter(temp_type == "max") %>%
+  filter(year == max(year)) %>% 
+  group_by(city_name) %>% 
+  summarise(diff_in_temp = max(temperature, na.rm = T))
+max_temps_start <- temperatures %>% 
+  mutate(temperatures, year = format(date, "%Y")) %>% 
+  filter(temp_type == "max") %>% 
+  filter(year == "1949") %>% 
+  group_by(city_name) %>% 
+  summarise(diff_in_temp = max(temperature, na.rm = T))
+
+temp_diff <- max_temps_current$diff_in_temp - max_temps_start$diff_in_temp
+
+print_temp_diff <- function(temp_diff){
+  sum_val <- 0
+  for (val in temp_diff) {
+    sum_val = sum_val + val
+  }
+  if (sum_val > 0) {
+    sentence <- paste("The temperature has risen a total of", sum_val, "degrees")
+  } else {
+    sentence <- paste("The temperature has decreased a total of", sum_val, " degrees")
+  }
+  print(sentence)
+}
+
+print_temp_diff(temp_diff)
+
+# The prompts below should probably be answered in another script as this 
+# script is only for displaying charts
 
 # Are there any amount of fire occurences that correlate with 
 # rising temperatures?
