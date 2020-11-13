@@ -28,9 +28,30 @@ on the importance of preventative measures and harm reduction methods.
 ##Render your table and describe pertinent observations found in it
 #patrick 
 
-##Describe the purpose of each chart (e.g., "this chart was intended to show the relationship between..."), render each chart, and describe pertinent observations found in each chart
+
+```{r echo=FALSE, include=FALSE}
+source("scripts/chart_1.R")
+```
+## Chart 1 Description 
 - The first chart we looked into is the Temperature and what the patterns look like over the time span we chose. By filtering the temperatures of Major australian cities to find the mean per year we were able to create a chart with mean temperatures by year with the Major cities 
-![Chart 1] (https://github.com/info201b-au20/project-es177/blob/gh-pages/scripts/mean_temperature_plot.png)
-- The 
+```{r echo=FALSE}
+  temp_chart_final
+```
 
+```{r echo=FALSE, include=FALSE}
+#source("scripts/chart_2.R")
+```
+## Chart 2 Description
+- 
+```{r echo=FALSE}
 
+```
+
+```{r echo=FALSE, include=FALSE}
+source("scripts/chart_3.R")
+```
+## Chart 2 Description
+- 
+```{r echo=FALSE}
+rainfall_year_chart
+```
