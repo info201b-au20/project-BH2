@@ -132,13 +132,13 @@ print_temp_diff(temp_diff)
 # The prompts below should probably be answered in another script as this 
 # script is only for displaying charts
 
-# Are there any amount of fire occurences that correlate with 
+# Are there any amount of fire occurrences that correlate with 
 # rising temperatures?
 
 # How has the min temperature and max temperature differed throughout the years?
 
 # Are there certain locations that are impacted more than others? In other
-# words, were there any drastic changes in the distribiution of temperatures
+# words, were there any drastic changes in the distribution of temperatures
 # over the course of the recorded dates?
 
 # plot for temperatures across cities within time frame
