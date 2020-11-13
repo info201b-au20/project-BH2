@@ -8,3 +8,5 @@ temp_col <- ncol(temperature)
 
 num_diff_places <- unique(temperature$city_name) %>% 
   View()
+
+
