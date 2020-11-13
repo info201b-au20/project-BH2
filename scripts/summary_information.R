@@ -13,10 +13,15 @@ summary_info$num_observations <- nrow(australia_fires)
 summary_info$maxtemperature <- australia_fires %>%
 filter(temperature == max(temperature, na.rm = T)) %>%
   select(temperature)
+summary_info$maxtemperaturedate<- australia_fires %>%
+filter(temperature == max(temperature, na.rm = T)) %>%
+  select(date)
 summary_info$mintemperature <- australia_fires %>%
   filter(temperature == min(temperature, na.rm = T)) %>%
 select(temperature)
-print(summary_info$mintemperature)
+summary_info$mintemperaturedate<- australia_fires %>%
+  filter(temperature == min(temperature, na.rm = T)) %>%
+select(date)
 summary_info$mediantemperature <- australia_fires %>%
   filter(temperature == median(temperature, na.rm= T)) %>%
   select(temperature)

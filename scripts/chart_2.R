@@ -1,4 +1,4 @@
-Christia
+Christian
 
 library(tidyverse)
 library(dplyr)
