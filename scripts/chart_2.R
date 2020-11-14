@@ -12,7 +12,22 @@ us_fires <- read_csv('https://raw.githubusercontent.com/BuzzFeedNews/2018-07-wil
 fire_rows <- nrow(nasa_fire)
 fire_col <- ncol(nasa_fire)
 
+fire_temp <- nasa_fire$brightness
+date <- unique(nasa_fire$acq_date)
+
+avg_temp_29 <- nasa_fire %>% 
+  group_by(acq_date) %>% 
+  
+  
+
+
+# fire temp max and low in Celcuis
+
+brightest_fire <- max(nasa_fire$brightness- 273 )
+dim_fire <- min(nasa_fire$brightness - 273)
 
 
 perth_location <- nasa_fire%>% 
   mutate(cords = "" 
+         
+         
