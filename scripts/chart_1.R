@@ -82,16 +82,13 @@ all_avg_temp_by_years <- temperature %>%
 
 # plot temperature and fire count
 
+
 temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
   breaks = seq(19)
   geom_line(mapping = aes(x = year, y = mean_temp, color = city_name)) +
   labs(x = "year", y = "mean temperature", title = " Mean temperature")
 
-print(temp_chart_final)
 
-
-
-# What does distribution of temperatures tell us about global warming?
 
 # find difference between min date max temp and max date max temp
 
