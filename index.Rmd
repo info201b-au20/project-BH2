@@ -1,5 +1,5 @@
 ---
-title: "index"
+title: "Australia Fire Analysis"
 author: "Group BH 2"
 date: "11/5/2020"
 output: html_document
@@ -9,8 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##Write an introductory paragraph explaining the domain/data set (feel free to borrow from the project proposal)
-#milli
+##### Introductory paragraph
 
   Our domain is the Australian bushfires that occured at the beginning of 2020. We found a data set that compiled multiple sources ranging from NASA 
 to the Australian Government and cleaned this data using a script. This dataset was fairly large, with 1500 rows and 30 columns of data.
@@ -22,38 +21,61 @@ and how much flora/fauna is destroyed? As climate change gets worse, knowing the
 to which fires are destroying lives becomes increasingly important in terms of being able to effect policy change and start a global conversation 
 on the importance of preventative measures and harm reduction methods.
 
-##Write a summary paragraph that includes information calculated by your summary information function
-#milli
+##### Summary paragraph with information calculated from summary information function
 
-Our summary information function is designed to extract a list of important information from the dataset. First of all, it calculates the numbers of rows in the dataset to give the reader an idea of the scope and size of the dataset. Secondly, it calculates the maximum and minimum temperatures recorded and the dates on which these temperatures occur. By finding the maximum and minimum temperatures, we can also determine the range of temperatures recorded and also see if the max temperature was more recently which would correspond with what we know about global warming increasing the maximum temperatures observed. The function also calculates the median temperature observed which we can later plot over time and the quantiles of temperature observed.
+  Our summary information function is designed to extract a list of important information from the dataset. First of all, it calculates the numbers of rows in the dataset to give the reader an idea of the scope and size of the dataset. Secondly, it calculates the maximum and minimum temperatures recorded and the dates on which these temperatures occur. By finding the maximum and minimum temperatures, we can also determine the range of temperatures recorded and also see if the max temperature was more recently which would correspond with what we know about global warming increasing the maximum temperatures observed. The function also calculates the median temperature observed which we can later plot over time and the quantiles of temperature observed.
 
-##Render your table and describe pertinent observations found in it
-#patrick 
-
+##### Render table
 
 ```{r echo=FALSE, include=FALSE}
-source("scripts/chart_1.R")
+library(tidyverse)
+# source("scripts/chart_1.R")
+temperature <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/temperature.csv")
+all_avg_temp_by_years <- temperature %>% 
+  mutate(temperature, year = format(date, "%Y")) %>%
+  group_by(city_name, year) %>% 
+  filter(temp_type == "max") %>% 
+  summarise(mean_temp = mean(temperature, na.rm = T))
+
+
+# plot temperature and fire count
+
+
+temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
+  geom_point(mapping = aes(x = year, y = mean_temp, color = city_name)) +
+  labs(x = "Year", y = "Mean temperature", title = " Mean temperature")  
 ```
-## Chart 1 Description 
-- The first chart we looked into is the Temperature and what the patterns look like over the time span we chose. By filtering the temperatures of Major australian cities to find the mean per year we were able to create a chart with mean temperatures by year with the Major cities 
+
+### Chart 1 Description 
+- The first chart we looked into is the Temperature and what the patterns look like over the time span we chose. By filtering the temperatures of Major Australian cities to find the mean per year we were able to create a chart with mean temperatures by year with the Major cities 
 ```{r echo=FALSE}
-  temp_chart_final
+temp_chart_final
 ```
 
 ```{r echo=FALSE, include=FALSE}
 #source("scripts/chart_2.R")
 ```
-## Chart 2 Description
+
+### Chart 2 Description
 - 
 ```{r echo=FALSE}
 
 ```
 
 ```{r echo=FALSE, include=FALSE}
-source("scripts/chart_3.R")
+#source("scripts/chart_3.R")
+rainfall <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/rainfall.csv')
+all_avg_rain_by_years <- rainfall %>%
+  group_by(city_name, year) %>% 
+  summarise(mean_rain = mean(rainfall, na.rm = T))
+
+rain_chart_final <- ggplot(all_avg_rain_by_years %>% group_by(city_name)) +
+  geom_point(mapping = aes(x = year, y = mean_rain, color = city_name)) +
+  labs(x = "Year", y = "Mean rainfall", title = " Mean rainfall") 
 ```
-## Chart 3 Description
-- 
+
+### Chart 3 Description
+- In this chart we looked at the years 1850 to 2020 by taking the cities in the data set and taking the mean rainfall we were able to see summary statistics for various places in addition to grouping and seeing them as a whole. The plot shows the output from the group cities and their average rainfall grouped by year and city. It is evident that Sydney and the eastern cities have different rainfall then the western ones.
 ```{r echo=FALSE}
-rainfall_year_chart
+rain_chart_final
 ```
