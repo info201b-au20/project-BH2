@@ -12,14 +12,13 @@ fire_col <- ncol(nasa_fire)
 date <- unique(nasa_fire$acq_date)
 
 # fire temp max and low in Celcuis
-hottest_fire <- max(nasa_fire$brightness- 273 )
+hottest_fire <- max(nasa_fire$brightness- 273)
 coldest_fire <- min(nasa_fire$brightness - 273)
 
 #average fire temp of the day
 avg_tem_day <- nasa_fire %>% 
   group_by(acq_date) %>% 
-  mutate(fire_temp = brightness) %>% 
-  summarise(avgtmp = mean(fire_temp))
+  summarise(avg_temp = mean(brightness), rounded_temp = round(avg_temp, 2))
 
 #lowest temp for the day
 lowest_tem_day <- nasa_fire %>% 
@@ -32,9 +31,12 @@ highest_tem_day <- nasa_fire %>%
   filter(brightness == max(brightness))
 
 #all three tables in one
-new_data1 <- merge(lowest_tem_day, highest_tem_day)
-new_data2 <- merge(
 
+fire_chart_final <- ggplot(avg_tem_day  %>% group_by(acq_date), aes(x = acq_date, y = avg_temp)) +
+  geom_bar(stat = "identity", width = 0.5, fill = "orange", color = "black") +
+  geom_text(aes(label = rounded_temp, vjust = -0.4, size = 3.5)) +
+  labs(x = "Year", y = "Mean brightness", title = " Mean of fire temperature in most recent wildfire")
 
+print(fire_chart_final)
 
 
