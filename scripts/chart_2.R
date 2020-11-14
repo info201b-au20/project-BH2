@@ -35,8 +35,7 @@ highest_tem_day <- nasa_fire %>%
 fire_chart_final <- ggplot(avg_tem_day  %>% group_by(acq_date), aes(x = acq_date, y = avg_temp)) +
   geom_bar(stat = "identity", width = 0.5, fill = "orange", color = "black") +
   geom_text(aes(label = rounded_temp, vjust = -0.4, size = 3.5)) +
-  labs(x = "Year", y = "Mean brightness", title = " Mean of fire temperature in most recent wildfire")
+  labs(x = "Year", y = "Mean brightness", title = " Mean of fire temperature in recent wildfire")
 
-print(fire_chart_final)
-
+ggsave("fire_avg_recent_wildfires_in_au.png", fire_chart_final)
 
