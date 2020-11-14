@@ -82,13 +82,9 @@ all_avg_temp_by_years <- temperature %>%
 
 # plot temperature and fire count
 
-p = ggplot() + 
-  geom_line(data = brisbane_avg_temp_by_years, aes(x = year, y = mean_temp), color = "blue") +
-  geom_line(data = canberra_avg_temp_by_years, aes(x = year, y = mean_temp), color = "red") +
-  xlab('years') +
-  ylab('temperature')
 
 temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
+
   geom_point(mapping = aes(x = year, y = mean_temp, color = city_name)) +
   labs(x = "Year", y = "Mean temperature", title = " Mean temperature")  
   
@@ -96,7 +92,13 @@ temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
   
  #print(temp_chart_final)
 
-# What does distribution of temperature tell us about global warming?
+  breaks = seq(19)
+  geom_line(mapping = aes(x = year, y = mean_temp, color = city_name)) +
+  labs(x = "year", y = "mean temperature", title = " Mean temperature")
+
+
+
+
 # find difference between min date max temp and max date max temp
 
 max_temps_current <- temperature %>% 
