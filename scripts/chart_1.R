@@ -87,15 +87,12 @@ temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
   geom_line(mapping = aes(x = year, y = mean_temp, color = city_name)) +
   labs(x = "year", y = "mean temperature", title = " Mean temperature")
 
-<<<<<<< HEAD
 print(temp_chart_final)
 
 
 
 # What does distribution of temperatures tell us about global warming?
-=======
-# What does distribution of temperature tell us about global warming?
->>>>>>> e80f3c08438f468dbf89bb4e06ea02530eefac26
+
 # find difference between min date max temp and max date max temp
 
 max_temps_current <- temperature %>% 
