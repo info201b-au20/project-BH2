@@ -1,4 +1,3 @@
-#Evan
 library(tidyverse)
 # Get the Data
 
@@ -26,8 +25,6 @@ fire_dates <- nasa_fire %>%
 # convert the city_name into regions for temperature
 # convert the city_name into regions for rainfall
 # group_by region
-
-
 temp_rain_region <- left_join(rainfall, temperature, by = "city_name")
 
 fire_temp_table <- left_join(fire_dates, temperature, by = "date")

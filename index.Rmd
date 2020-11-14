@@ -28,13 +28,28 @@ on the importance of preventative measures and harm reduction methods.
 ##Render your table and describe pertinent observations found in it
 
 ```{r echo=FALSE, include=FALSE}
-source("scripts/chart_1.R")
+library(tidyverse)
+# source("scripts/chart_1.R")
+temperature <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/temperature.csv")
+all_avg_temp_by_years <- temperature %>% 
+  mutate(temperature, year = format(date, "%Y")) %>%
+  group_by(city_name, year) %>% 
+  filter(temp_type == "max") %>% 
+  summarise(mean_temp = mean(temperature, na.rm = T))
+
+
+# plot temperature and fire count
+
+
+temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
+  geom_point(mapping = aes(x = year, y = mean_temp, color = city_name)) +
+  labs(x = "Year", y = "Mean temperature", title = " Mean temperature")  
 ```
 
 ## Chart 1 Description 
-- The first chart we looked into is the Temperature and what the patterns look like over the time span we chose. By filtering the temperatures of Major australian cities to find the mean per year we were able to create a chart with mean temperatures by year with the Major cities 
+- The first chart we looked into is the Temperature and what the patterns look like over the time span we chose. By filtering the temperatures of Major Australian cities to find the mean per year we were able to create a chart with mean temperatures by year with the Major cities 
 ```{r echo=FALSE}
-  temp_chart_final
+temp_chart_final
 ```
 
 ```{r echo=FALSE, include=FALSE}
@@ -48,7 +63,15 @@ source("scripts/chart_1.R")
 ```
 
 ```{r echo=FALSE, include=FALSE}
-source("scripts/chart_3.R")
+#source("scripts/chart_3.R")
+rainfall <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/rainfall.csv')
+all_avg_rain_by_years <- rainfall %>%
+  group_by(city_name, year) %>% 
+  summarise(mean_rain = mean(rainfall, na.rm = T))
+
+rain_chart_final <- ggplot(all_avg_rain_by_years %>% group_by(city_name)) +
+  geom_point(mapping = aes(x = year, y = mean_rain, color = city_name)) +
+  labs(x = "Year", y = "Mean rainfall", title = " Mean rainfall") 
 ```
 
 ## Chart 3 Description

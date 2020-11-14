@@ -84,7 +84,6 @@ all_avg_temp_by_years <- temperature %>%
 
 
 temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
-
   geom_point(mapping = aes(x = year, y = mean_temp, color = city_name)) +
   labs(x = "Year", y = "Mean temperature", title = " Mean temperature")  
   
