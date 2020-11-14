@@ -90,7 +90,11 @@ p = ggplot() +
 
 temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
   geom_point(mapping = aes(x = year, y = mean_temp, color = city_name)) +
-  labs(x = "year", y = "mean temperature", title = " Mean temperature")
+  labs(x = "Year", y = "Mean temperature", title = " Mean temperature")  
+  
+  #scale_x_continuous(breaks = seq(1910, 2020, by = 20))
+  
+ #print(temp_chart_final)
 
 # What does distribution of temperature tell us about global warming?
 # find difference between min date max temp and max date max temp

@@ -55,5 +55,5 @@ source("scripts/chart_3.R")
 ## Chart 3 Description
 - 
 ```{r echo=FALSE}
-rainfall_year_chart
+rain_chart_final
 ```
