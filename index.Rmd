@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##Write an introductory paragraph explaining the domain/data set (feel free to borrow from the project proposal)
+### Write an introductory paragraph explaining the domain/data set (feel free to borrow from the project proposal)
 
   Our domain is the Australian bushfires that occured at the beginning of 2020. We found a data set that compiled multiple sources ranging from NASA 
 to the Australian Government and cleaned this data using a script. This dataset was fairly large, with 1500 rows and 30 columns of data.
@@ -21,11 +21,11 @@ and how much flora/fauna is destroyed? As climate change gets worse, knowing the
 to which fires are destroying lives becomes increasingly important in terms of being able to effect policy change and start a global conversation 
 on the importance of preventative measures and harm reduction methods.
 
-##Write a summary paragraph that includes information calculated by your summary information function
+### Write a summary paragraph that includes information calculated by your summary information function
 
   Our summary information function is designed to extract a list of important information from the dataset. First of all, it calculates the numbers of rows in the dataset to give the reader an idea of the scope and size of the dataset. Secondly, it calculates the maximum and minimum temperatures recorded and the dates on which these temperatures occur. By finding the maximum and minimum temperatures, we can also determine the range of temperatures recorded and also see if the max temperature was more recently which would correspond with what we know about global warming increasing the maximum temperatures observed. The function also calculates the median temperature observed which we can later plot over time and the quantiles of temperature observed.
 
-##Render your table and describe pertinent observations found in it
+### Render your table and describe pertinent observations found in it
 
 ```{r echo=FALSE, include=FALSE}
 library(tidyverse)
