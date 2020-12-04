@@ -1,8 +1,8 @@
 # Patrick + everyone!!
   
-library(tidyverse)
+library(dplyr)
 library(ggplot2)
-
+rainfall <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/rainfall.csv')
 uniq_cities <- unique(rainfall$city_name, incomparables = FALSE)
 #Perth
 #Adelaide
@@ -60,7 +60,7 @@ all_avg_rain_by_years <- rainfall %>%
 
 p2 = ggplot() + 
   geom_line(data = brisbane_avg_rain_by_years, aes(x = year, y = mean_rain), color = "blue") +
-  geom_line(data = Canberra_avg_rain_by_years, aes(x = year, y = mean_rain), color = "red") +
+  geom_line(data = canberra_avg_rain_by_years, aes(x = year, y = mean_rain), color = "red") +
   xlab('years') +
   ylab('rainfall')
 
