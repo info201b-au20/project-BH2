@@ -44,7 +44,7 @@ all_avg_temp_by_years <- temperature %>%
 
 temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
   geom_point(mapping = aes(x = year, y = mean_temp, color = city_name)) +
-  labs(x = "Year", y = "Mean temperature", title = " Mean temperature")  
+  labs(x = "Year", y = "Mean temperature", title = " Mean temperature")
 ```
 
 ### Chart 1 Description 
@@ -57,7 +57,7 @@ temp_chart_final
 ### Chart 2 Description
 - This chart is meant to show the average brightness temperatures of the Australian fires in the beginning of 2020. This is important as it can later be compared to fires in the past. This comparison can lead to a conclusion about whether or not global warming and the brightness temperatuers of Australian wildfires are correlated.
 
-```{r echo=FALSE, warning=FALSE, include=FAlSE, message=FALSE}
+```{r echo=FALSE, warning=FALSE, include=FALSE, message=FALSE}
 source("scripts/chart_2.R")
   fire_chart_final
 ```
