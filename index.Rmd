@@ -44,48 +44,35 @@ all_avg_temp_by_years <- temperature %>%
 
 temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
   geom_point(mapping = aes(x = year, y = mean_temp, color = city_name)) +
-  labs(x = "Year", y = "Mean temperature", title = " Mean temperature")  
+  labs(x = "Year", y = "Mean temperature", title = " Mean temperature")
+print(temp_chart_final)
 ```
 
 ### Chart 1 Description 
 - The first chart we looked into is the Temperature and what the patterns look like over the time span we chose. By filtering the temperatures of Major Australian cities to find the mean per year we were able to create a chart with mean temperatures by year with the Major cities 
 
-```{r echo=FALSE, warning=FALSE}
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+source("scripts/chart_1.R")
 temp_chart_final
 ```
 
 ### Chart 2 Description
 - This chart is meant to show the average brightness temperatures of the Australian fires in the beginning of 2020. This is important as it can later be compared to fires in the past. This comparison can lead to a conclusion about whether or not global warming and the brightness temperatuers of Australian wildfires are correlated.
 
+<<<<<<< HEAD
 ```{r echo=FALSE, warning=FALSE, incLude=FAlSE, message=FALSE}
+=======
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+>>>>>>> fe66875e54e8b2ab8d50dc4b8686330a141873b6
 source("scripts/chart_2.R")
-  fire_chart_final
+fire_chart_final
 ```
 
-
-```{r}
-library(dplyr)
-library(ggplot2)
-rainfall <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/rainfall.csv')
-all_avg_rain_by_years <- rainfall %>%
-  group_by(city_name, year) %>% 
-  summarise(mean_rain = mean(rainfall, na.rm = T))
-
-rain_chart_final <- ggplot(all_avg_rain_by_years %>% group_by(city_name)) +
-  geom_point(mapping = aes(x = year, y = mean_rain, color = city_name)) +
-  labs(x = "Year", y = "Mean rainfall", title = " Mean rainfall") 
-```
-
-
-```{r echo=FALSE, warning=FALSE}
-#source("scripts/chart_3.R")
-
-rain_chart_final
-```
 
 ### Chart 3 Description
 - In this chart we looked at the years 1850 to 2020 by taking the cities in the data set and taking the mean rainfall we were able to see summary statistics for various places in addition to grouping and seeing them as a whole. The plot shows the output from the group cities and their average rainfall grouped by year and city. It is evident that Sydney and the eastern cities have different rainfall then the western ones.
 
-```{r echo=FALSE, warning=FALSE, include=FALSE}
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+source("scripts/chart_3.R")
 rain_chart_final
 ```
