@@ -69,4 +69,4 @@ rain_chart_final <- ggplot(all_avg_rain_by_years %>% group_by(city_name)) +
   labs(x = "Year", y = "Mean rainfall", title = " Mean rainfall") 
 
 rainfall_year_chart <- ggplot(rainfall, aes(x = year, y = rainfall)) + geom_point(size=2, shape=23)
-ggsave()
+
