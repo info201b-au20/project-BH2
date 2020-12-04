@@ -62,16 +62,24 @@ source("scripts/chart_2.R")
   fire_chart_final
 ```
 
-```{r echo=FALSE, warning=FALSE}
-source("scripts/chart_3.R")
-#rainfall <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/dat#a/2020/2020-01-07/rainfall.csv')
-#all_avg_rain_by_years <- rainfall %>%
-#  group_by(city_name, year) %>% 
-#  summarise(mean_rain = mean(rainfall, na.rm = T))
 
-#rain_chart_final <- ggplot(all_avg_rain_by_years %>% group_by(city_name)) +
-#  geom_point(mapping = aes(x = year, y = mean_rain, color = city_name)) +
-#  labs(x = "Year", y = "Mean rainfall", title = " Mean rainfall") 
+```{r}
+library(dplyr)
+library(ggplot2)
+rainfall <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/rainfall.csv')
+all_avg_rain_by_years <- rainfall %>%
+  group_by(city_name, year) %>% 
+  summarise(mean_rain = mean(rainfall, na.rm = T))
+
+rain_chart_final <- ggplot(all_avg_rain_by_years %>% group_by(city_name)) +
+  geom_point(mapping = aes(x = year, y = mean_rain, color = city_name)) +
+  labs(x = "Year", y = "Mean rainfall", title = " Mean rainfall") 
+```
+
+
+```{r echo=FALSE, warning=FALSE}
+#source("scripts/chart_3.R")
+
 rain_chart_final
 ```
 

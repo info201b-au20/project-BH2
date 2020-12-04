@@ -2,6 +2,7 @@
 library(tidyverse)
 library(dplyr)
 library(readr)
+library(ggplot2)
 # link for data
 
 nasa_fire <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/MODIS_C6_Australia_and_New_Zealand_7d.csv')
@@ -37,5 +38,4 @@ fire_chart_final <- ggplot(avg_tem_day  %>% group_by(acq_date), aes(x = acq_date
   geom_text(aes(label = rounded_temp, vjust = -0.4, size = 3.5)) +
   labs(x = "Year", y = "Mean brightness", title = " Mean of fire temperature in recent wildfire")
 
-ggsave("fire_avg_recent_wildfires_in_au.png", fire_chart_final)
 
