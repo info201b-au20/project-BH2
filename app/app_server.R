@@ -15,7 +15,7 @@ server <- function(input, output) {
   })
   
 # Interactive panel 2
-  output$plot <- renderPlot({
+  output$leaflet <- renderPlot({
     # return the plot
     
   })

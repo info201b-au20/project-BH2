@@ -25,28 +25,7 @@ on the importance of preventative measures and harm reduction methods.
 
   Our summary information function is designed to extract a list of important information from the dataset. First of all, it calculates the numbers of rows in the dataset to give the reader an idea of the scope and size of the dataset. Secondly, it calculates the maximum and minimum temperatures recorded and the dates on which these temperatures occur. By finding the maximum and minimum temperatures, we can also determine the range of temperatures recorded and also see if the max temperature was more recently which would correspond with what we know about global warming increasing the maximum temperatures observed. The function also calculates the median temperature observed which we can later plot over time and the quantiles of temperature observed.
 
-##### Render table
-
-```{r echo=FALSE, include=FALSE, warning=FALSE}
-library(dplyr)
-library(ggplot2)
-# source("scripts/chart_1.R")
-temperature <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/temperature.csv")
-all_avg_temp_by_years <- temperature %>% 
-  mutate(temperature, year = format(date, "%Y")) %>%
-  group_by(city_name, year) %>% 
-  filter(temp_type == "max") %>% 
-  summarise(mean_temp = mean(temperature, na.rm = T))
-
-
-# plot temperature and fire count
-
-
-temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
-  geom_point(mapping = aes(x = year, y = mean_temp, color = city_name)) +
-  labs(x = "Year", y = "Mean temperature", title = " Mean temperature")
-print(temp_chart_final)
-```
+##### Render table below
 
 ### Chart 1 Description 
 - The first chart we looked into is the Temperature and what the patterns look like over the time span we chose. By filtering the temperatures of Major Australian cities to find the mean per year we were able to create a chart with mean temperatures by year with the Major cities 
@@ -56,18 +35,20 @@ source("scripts/chart_1.R")
 temp_chart_final
 ```
 
+#### Notable Observations Chart 1
+- Here we observe the mean temperature across the various major cities in Australia. Initially one can see the blue scatter for Perth start out and trend higher all the way towards the end in Temperature (Celcius). Perth is on the far Western portion of the country with higher temperatures. In addition to this we see Brisbane trending higher in temperature which is related to its positioning closer to the Equator compared to the other large Eastern Australian cities analyzed. Conversely we see Melbourne trending with some of the lowest temperatures with it geography furthest south on Australia furthest from the equator. 
+
 ### Chart 2 Description
 - This chart is meant to show the average brightness temperatures of the Australian fires in the beginning of 2020. This is important as it can later be compared to fires in the past. This comparison can lead to a conclusion about whether or not global warming and the brightness temperatuers of Australian wildfires are correlated.
 
-<<<<<<< HEAD
-```{r echo=FALSE, warning=FALSE, incLude=FAlSE, message=FALSE}
-=======
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
->>>>>>> fe66875e54e8b2ab8d50dc4b8686330a141873b6
+
 source("scripts/chart_2.R")
 fire_chart_final
 ```
 
+#### Notable Observations Chart 2
+- In this chart we found it interesting that the brightness for all the days available from the data were all similar in averge brightness. This only leads us to the conclusion that the fires were especially strong and uncontained in the tail end of December 2019 and the beginnning of January 2020. The mean brightness of 330-350 of fie pixels of Kelvin is extremely hot and interesting to think of. It goes to show the scope and intensity of the fires and natural disaster. Looking forward we are working on sourcing a larger range of brightness data as it can be useful when it comes to mapping later on. 
 
 ### Chart 3 Description
 - In this chart we looked at the years 1850 to 2020 by taking the cities in the data set and taking the mean rainfall we were able to see summary statistics for various places in addition to grouping and seeing them as a whole. The plot shows the output from the group cities and their average rainfall grouped by year and city. It is evident that Sydney and the eastern cities have different rainfall then the western ones.
@@ -76,3 +57,6 @@ fire_chart_final
 source("scripts/chart_3.R")
 rain_chart_final
 ```
+
+#### Notable Observations Chart 3
+- Finally in order to create a different plot from chart 1 we looked at a line chart. Here we examine the average rainfall for the major cities in Australia. We can notice that as of recently Brisbane has had massive spikes in abnormal quantities of rain compared to past years and other cities. Again we saw a trend of Brisbane earlier having higher temperatures and closer proximity to the equator. This might be correlation since humidity increases. We see that Adelaide has the lowest consistent rainfall which is strikingly low with an average of -1.7 millimeters of rain. We see that geographically Adelaide is positioned in lower and centered in Australia, it maight seem that moisture has a hard time reaching these regions. It will be interesting to see how this correlates to fire Damage and concentrations. 

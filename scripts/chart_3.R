@@ -65,8 +65,15 @@ p2 = ggplot() +
   ylab('rainfall')
 
 rain_chart_final <- ggplot(all_avg_rain_by_years %>% group_by(city_name)) +
-  geom_point(mapping = aes(x = year, y = mean_rain, color = city_name)) +
-  labs(x = "Year", y = "Mean rainfall", title = " Mean rainfall") 
+  #geom_point(mapping = aes(x = year, y = mean_rain, color = city_name)) +
+  labs(x = "Year", y = "Mean rainfall", title = " Mean rainfall") +
+  geom_line(mapping = aes(x = year, y = mean_rain, color = city_name), size=.5, alpha=0.9, linetype=2) + 
+  ggtitle("Average Rainfall over the Years 1850-2020") + 
+  xlab("Year") + ylab("Rainfall (Millimeters)") + coord_flip()
 
-rainfall_year_chart <- ggplot(rainfall, aes(x = year, y = rainfall)) + geom_point(size=2, shape=23)
+rainfall_year_chart <- ggplot(rainfall, aes(x = year, y = rainfall)) + 
+  geom_line( color="#69b3a2", size=.5, alpha=0.9, linetype=2) + 
+  ggtitle("Average Rainfall over the Years 1850-2020") + 
+  xlab("Year") + ylab("Rainfall (Millimeters)")
+
 

@@ -88,7 +88,8 @@ temp_chart_final <- ggplot(all_avg_temp_by_years %>% group_by(city_name)) +
   labs(x = "Year", y = "Mean temperature", title = " Mean temperature") +
   geom_line(mapping = aes(x = year, y = mean_temp, color = city_name)) +
   labs(x = "year", y = "mean temperature", title = " Mean temperature") + 
-  scale_x_discrete(guide = guide_axis(n.dodge=16)) 
+  scale_x_discrete(guide = guide_axis(n.dodge=15))
+
 
 
 
