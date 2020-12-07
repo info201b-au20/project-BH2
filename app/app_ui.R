@@ -29,9 +29,27 @@ interactive_panel_2 <- tabPanel(
 
 
 ## Milli
+y_input<- selectInput(
+  "y_var",
+  label= "Choose a Y-Variable to Explore Over Time",
+  choices= select_values,
+  selected= "displ")  
+
+
 interactive_panel_3 <- tabPanel(
-  
-)
+  titlePanel("Interactive Plot #3"),
+  mainPanel(
+  h3(plotOutput("scatter"),
+     sidebarLayout(
+       sidebarPanel( 
+         y_input<- selectInput(
+           "y_var",
+           label= "Choose a Y-Variable to Explore Over Time",
+           choices= select_values,
+           selected= "displ")  ),
+       )
+  )))
+
 
 ## Final UI
 ui <- navbarPage(
@@ -48,5 +66,4 @@ ui <- navbarPage(
 
   interactive_panel_3, 
   
-  conclusion_panel
-)
+  conclusion_panel)
