@@ -19,13 +19,9 @@ server <- function(input, output) {
 
   output$leaflet <- renderPlot({
 
-  output$plot <- renderPlot({
-   
-    # return the plot
-    
-
   })
-  })
+  
+  
 # Interactive panel 3
   server<-function(input,output){
 output$scatter <- renderPlot({
