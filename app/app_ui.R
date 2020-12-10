@@ -15,16 +15,22 @@ interactive_panel_1 <- tabPanel(
 
 ## Evan
 interactive_panel_2 <- tabPanel(
-  titlePanel(),
+  titlePanel("Fire Brightness/Intensity"),
   sidebarPanel(
-    sliderInput("acq_date",
-              "Dates:",
-              min = as.Date("2019-12-29","%Y-%m-%d"),
-              max = as.Date("2020-01-05","%Y-%m-%d"),
-              value=as.Date("2020-01-05"),
-              timeFormat="%Y-%m-%d")
+    sliderInput(inputId = "acq_date",
+                label = "Peak Dates: June 2019 - May 2020",
+                min = as.Date("2019-06-01","%Y-%m-%d"),
+                max = as.Date("2020-05-31","%Y-%m-%d"),
+                value=as.Date("2020-05-31"),
+                timeFormat="%Y-%m-%d"),
+    checkboxGroupInput(inputId = "daynight", 
+                       label = "Check day (D)/night (N) or both",
+                       choices = list("D", "N"), 
+                       selected = list("D", "N"))
+  ),
+  mainPanel(
+    leafletOutput(outputId = "brightness_map")
   )
-  
 )
 
 
