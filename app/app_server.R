@@ -51,16 +51,56 @@ output$brightness_map <- renderLeaflet({
 # Select Rainfall or Temperature Plot
 
 # Interactive panel 2
-output$scatter <- renderPlotly({
-  title <- paste0("Title")
-  rain_data <- bom_data %>%
-    group_by(City) %>% 
-    select(City, Rainfall_mm)
-  temp_data <- bom_data %>% 
-    group_by(City) %>% 
-    select(City, Temperature_C)
-  plot1 <- ggplot(data = bom_data) +
-    geom_line(mapping = aes_string(x = "Year", y = "Rainfall_mm" ,color="City")) +
+output$rain_temp_plot <- renderPlotly({
+  
+  # City Rain Charts
+  syd_rain_chart <- bom_data %>% 
+    filter(City == "Sydney") %>% 
+    select(Year, Rainfall_mm)
+  names(syd_rain_chart)[names(syd_rain_chart) 
+                        == "Rainfall_mm"] <- "Sydney_Rainfall_mm"
+  
+  perth_rain_chart <- bom_data %>% 
+    filter(City == "Perth") %>% 
+    select(Year, Rainfall_mm)
+  names(perth_rain_chart)[names(perth_rain_chart) 
+                          == "Rainfall_mm"] <- "Perth_Rainfall_mm"
+  
+  dar_rain_chart <- bom_data %>% 
+    filter(City == "Darwin") %>% 
+    select(Year, Rainfall_mm)
+  names(dar_rain_chart)[names(dar_rain_chart) 
+                        == "Rainfall_mm"] <- "Darwin_Rainfall_mm"
+  
+  # City Temperature Charts
+  syd_temp_chart <- bom_data %>% 
+    filter(City == "Sydney") %>% 
+    select(Year, Temperature_C)
+  names(syd_temp_chart)[names(syd_temp_chart) 
+                        == "Temperature_C"] <- "Sydney_Temperature_mm"
+  
+  perth_temp_chart <- bom_data %>% 
+    filter(City == "Perth") %>% 
+    select(Year, Temperature_C)
+  names(perth_temp_chart)[names(perth_temp_chart) 
+                        == "Temperature_C"] <- "Perth_Temperature_mm"
+  
+  dar_temp_chart <- bom_data %>% 
+    filter(City == "Darwin") %>% 
+    select(Year, Temperature_C)
+  names(dar_temp_chart)[names(dar_temp_chart) 
+                        == "Temperature_C"] <- "Darwin_Temperature_mm"
+  
+  # Combine Data Frames
+  rain_temp_city_data <- merge(perth_rain_chart, 
+                merge(perth_temp_chart,
+                      merge(dar_rain_chart, 
+                            merge(dar_temp_chart, 
+                                  merge(syd_rain_chart, syd_temp_chart)))))
+  
+  title <- paste0("Temporary Title")
+  plot1 <- ggplot(data = rain_temp_city_data) +
+    geom_line(mapping = aes_string(x = "Year", y = input$y_var)) +
     ggtitle("Measures of Climate Change in Australia
             Over Time") +
     labs(y = "Measure of Climate Change", x = "Years")
