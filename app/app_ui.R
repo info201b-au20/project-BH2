@@ -55,7 +55,10 @@ interactive_panel_1 <- tabPanel(
     cover changes (e.g. to monitor deforestation rates), global snow cover trends, water inundation from pluvial, riverine, or sea 
     level rise flooding in coastal areas, change of water levels of major lakes such as the Aral Sea, and the detection and mapping of wildland fires in the United States and around the world bringing our application of Australia. 
     Centre's like the 'The United States Forest Service's Remote Sensing Applications Center' analyzes MODIS imagery on a continuous basis to provide information for the management and suppression of wildfires"),
-  img(src='modis_scan.jpg', height = "60%", width = "60%")
+  img(src='modis_scan.jpg', height = "60%", width = "60%"),
+  h4("Full plotting of data from June 2019 - May 2020."),
+  p("Here we see all the data from the peak months of the fire plotted. The Northern and the South Eastern portions of Australia were effected the most. We can see that many of the large cities such as Dysney, Melbourne, Brisbane and Perth were impacted."),
+  img(src='brightness_map.png', height = "60%", width = "60%")
 )
 
 
@@ -91,12 +94,15 @@ interactive_panel_2 <- tabPanel(
 conclusion_panel<-tabPanel(
   h4("Conclusion"),
   mainPanel(
-    p("")))
+    p(""))
+)
 
 ## Final UI
 ui <- navbarPage(theme = shinytheme("journal"),
   # A page header with a descriptive title
   "Australia Wildfire Exploration",
+  
+  includeCSS("styles.css"),
 
   intro_panel, 
 

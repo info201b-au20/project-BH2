@@ -1,13 +1,14 @@
 # Load libraries so they are available
 library("shiny")
 library("ggplot2")
-library(leaflet)
-library(plotly)
-library(ggthemes)
-
+library("leaflet")
+library("plotly")
+library("ggthemes")
+library("readr")
 # Read data file
 bom_data <- read.csv("bom_values_numbers.csv")
 fire_data <- read.csv("fire_archive_M6_169855.csv")
+nasa_modis_brightness <- read_csv("fire_archive_M6_169855.csv")
 
 # Define a server function
 server <- function(input, output) {
