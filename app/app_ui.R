@@ -92,7 +92,7 @@ ui <- navbarPage(
   # A page header with a descriptive title
   titlePanel("Australia"),
   
-  h1("Australia Wildfire Exloration"),
+  h1("Australia Wildfire Exploration"),
 
   intro_panel, 
 
