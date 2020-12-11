@@ -75,7 +75,7 @@ y_input <- selectInput(
 
 
 interactive_panel_2 <- tabPanel(
-  h4("Title"),
+  h4("Interactive Charts"),
   sidebarLayout(
     sidebarPanel(
       h1("Input section"),

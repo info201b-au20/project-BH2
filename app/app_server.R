@@ -3,6 +3,7 @@ library("shiny")
 library("ggplot2")
 library(leaflet)
 library(plotly)
+library(ggthemes)
 
 # Read data file
 bom_data <- read.csv("bom_values_numbers.csv")
@@ -103,7 +104,8 @@ output$rain_temp_plot <- renderPlotly({
     geom_line(mapping = aes_string(x = "Year", y = input$y_var)) +
     ggtitle("Measures of Climate Change in Australia
             Over Time") +
-    labs(y = "Measure of Climate Change", x = "Years")
+    labs(y = "Measure of Climate Change", x = "Years") +
+    theme_economist()
   ggplotly(plot1) 
   })
 
