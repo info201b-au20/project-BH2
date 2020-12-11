@@ -73,26 +73,12 @@ y_input <- selectInput(
   )
 )
 
-x_input <- dateRangeInput(
-  "dates", 
-  label = h3("Date range"),
-  start = 1950,
-  end = 2019,
-  min = 1950,
-  max = 2019,
-  format = "yyyy"
-)
-
-
 interactive_panel_2 <- tabPanel(
   h4("Interactive Charts"),
   sidebarLayout(
     sidebarPanel(
       h1("Input section"),
       y_input,
-      x_input,
-      hr(),
-      fluidRow(column(4, verbatimTextOutput("value")))
     ),
     mainPanel(
       h1("Temperature and Rainfall Changes in Australia  over Time"),

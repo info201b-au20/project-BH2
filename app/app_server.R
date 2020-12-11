@@ -101,12 +101,16 @@ output$rain_temp_plot <- renderPlotly({
   
   title <- paste0("Temporary Title")
   plot1 <- ggplot(data = rain_temp_city_data) +
-    geom_line(mapping = aes_string(x = input$x_var, y = input$y_var)) +
+    geom_line(mapping = aes_string(x = "Year", y = input$y_var)) +
     ggtitle("Measures of Climate Change in Australia
             Over Time") +
     labs(y = "Measure of Climate Change", x = "Years") +
     theme_economist()
   ggplotly(plot1) 
+  
+  # Add last function to compare. Create 6 geom_line plots with color input 
+  # as a function that returns true for dark line and false for opaque line
+  
   })
 
 }
