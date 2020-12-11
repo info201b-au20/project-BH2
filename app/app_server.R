@@ -7,14 +7,10 @@ income_growth <- read.csv("data/income_growth_1980-2014.csv")
 
 # Define a server function
 server <- function(input, output) {
+
+
   
 # Interactive panel 1
-  output$plot <- renderPlot({
-    # return the plot
-    
-  })
-  
-# Interactive panel 2
 output$brightness_map <- renderLeaflet({
   
   prep_nasa_modis_brightness <- nasa_modis_brightness %>% 
@@ -46,7 +42,7 @@ output$brightness_map <- renderLeaflet({
 })
   
   
-# Interactive panel 3
+# Interactive panel 2
 output$scatter <- renderPlot({
   plot_data<-bom_values%>%
     filter(City=="Sydney"|City=="Darwin"|City=="Perth")%>%
