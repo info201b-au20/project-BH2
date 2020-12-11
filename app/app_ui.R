@@ -60,26 +60,26 @@ interactive_panel_1 <- tabPanel(
 
 
 ## Milli
-y_input<- selectInput(
-  "y_var",
-  label= "Choose a Y-Variable to Explore Over Time",
-  choices= select_values,
-  selected= "displ")  
-
-
-interactive_panel_2 <- tabPanel(
-  titlePanel("Temperature and Rainfall Changes in Australia  over Time"),
-  mainPanel(
-  h3(plotOutput("scatter"),
-     sidebarLayout(
-       sidebarPanel( 
-         y_input<- selectInput(
-           "y_var",
-           label= "Choose a Y-Variable to Explore Over Time",
-           choices= select_values,
-           selected= "displ")  ),
-       )
-  )))
+# y_input<- selectInput(
+#   "y_var",
+#   label= "Choose a Y-Variable to Explore Over Time",
+#   choices= select_values,
+#   selected= "displ")  
+# 
+# 
+# interactive_panel_2 <- tabPanel(
+#   titlePanel("Temperature and Rainfall Changes in Australia  over Time"),
+#   mainPanel(
+#   h3(plotOutput("scatter"),
+#      sidebarLayout(
+#        sidebarPanel( 
+#          y_input<- selectInput(
+#            "y_var",
+#            label= "Choose a Y-Variable to Explore Over Time",
+#            choices= select_values,
+#            selected= "displ")  ),
+#        )
+#   )))
 
 conclusion_panel<-tabPanel(
   "Conclusion",
@@ -96,8 +96,8 @@ ui <- navbarPage(
 
   intro_panel, 
 
-  interactive_panel_1,
+  # interactive_panel_1,
 
-  interactive_panel_2,
+  # interactive_panel_2,
    
   conclusion_panel)

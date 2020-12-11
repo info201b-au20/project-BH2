@@ -1,9 +1,12 @@
 # Load libraries so they are available
 library("shiny")
 library("ggplot2")
+library(leaflet)
+library(plotly)
 
 # Read data file
-income_growth <- read.csv("data/income_growth_1980-2014.csv")
+bom_data <- read.csv("bom_values_numbers.csv")
+fire_data <- read.csv("fire_archive_M6_169855.csv")
 
 # Define a server function
 server <- function(input, output) {
@@ -41,17 +44,28 @@ output$brightness_map <- renderLeaflet({
               values = ~brightness, title = "Brightnesss") 
 })
   
-  
+# Goals
+# different graph for different cities
+# comparison plot, change opacity for selected element OR
+# Date Range
+# Select Rainfall or Temperature Plot
+
 # Interactive panel 2
-output$scatter <- renderPlot({
-  plot_data<-bom_values%>%
-    filter(City=="Sydney"|City=="Darwin"|City=="Perth")%>%
-  plot<-ggplot(data = bom_values)+
-    geom_line(mapping=aes_string(x="year",y=input$y_var,color="City"))+
+output$scatter <- renderPlotly({
+  title <- paste0("Title")
+  rain_data <- bom_data %>%
+    group_by(City) %>% 
+    select(City, Rainfall_mm)
+  temp_data <- bom_data %>% 
+    group_by(City) %>% 
+    select(City, Temperature_C)
+  plot1 <- ggplot(data = bom_data) +
+    geom_line(mapping = aes_string(x = "Year", y = "Rainfall_mm" ,color="City")) +
     ggtitle("Measures of Climate Change in Australia
-            Over Time")+
-    labs(y="Measure of Climate Change",x="Years")
-  ggplot(plot)
+            Over Time") +
+    labs(y = "Measure of Climate Change", x = "Years")
+  ggplotly(plot1) 
   })
 
 }
+
