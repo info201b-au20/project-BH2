@@ -1,7 +1,11 @@
-body {
-  background-color: #d9c9c7
+.ui{
+  background-color: #d9c9c7;
 }
 
-h4 {
-  color: #7d3931
+.body {
+  background-color: #d9c9c7;
+}
+
+h4, .h4 {
+  color: #7d3931;
 }

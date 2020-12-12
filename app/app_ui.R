@@ -101,8 +101,9 @@ conclusion_panel<-tabPanel(
 ui <- navbarPage(theme = shinytheme("journal"),
   # A page header with a descriptive title
   "Australia Wildfire Exploration",
-  
-  includeCSS("styles.css"),
+  tags$head(
+    tags$link(rel = "stylesheet", type = "text/css", href = "www/style.css")
+  ),
 
   intro_panel, 
 
