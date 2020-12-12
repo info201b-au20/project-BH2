@@ -12,7 +12,14 @@ We wanted to ask questions about how climate change is impacting major causes of
 We believe that examining these measures and calling attention to the potential devastation climate change could cause is necessary
 to shape coherent policy and invest in harm reduction strategies.
 
-For this project, we used two major datasets. Our first database that compiled multiple sources 
+Our main guiding questions in our initial proposal guided us. We asked things like:
+- How have people been displaced?
+- How did fires evolve over time?
+- How did NASA satellites provide insights?
+- How has climate change added to the main causes for Australian Wildfires?
+
+
+For this project, we used two major datasets. Our first database that compiled multiple sources
 ranging from NASA to the Australian Government. We downloaded the dataset from the tidy Tuesday dataset sourced from NASA and the New South Wales Rural Fire Service courtesy of Dean Marchiori. Our second dataset
 was constructed using values from the Australian Government's Bureau of Meteorology, which has historic data on rainfall and temperature change over time all over Australia.
 Both datasets helped us shape a project we believe is both meaningful and necessary in addressing and combating climate change in Australia.
