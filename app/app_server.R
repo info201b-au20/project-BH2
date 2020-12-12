@@ -1,16 +1,4 @@
 # Load libraries so they are available
-<<<<<<< HEAD
-=======
-library("shiny")
-library("ggplot2")
-library("leaflet")
-library("plotly")
-library("ggthemes")
-library("readr")
-library("markdown")
-library("shinyWidgets")
-
->>>>>>> 748927e469636cacca3b4bbd280c7e0be203c5d5
 # Read data file
 bom_data <- read.csv("bom_values_numbers.csv")
 fire_data <- read.csv("fire_archive_M6_169855.csv")
@@ -105,6 +93,8 @@ output$rain_temp_plot <- renderPlotly({
                       merge(dar_rain_chart, 
                             merge(dar_temp_chart, 
                                   merge(syd_rain_chart, syd_temp_chart)))))
+  rain_temp_city_data <- rain_temp_city_data %>% 
+    filter(Year <= 1973) 
   
   title <- paste0("Weather and Temperature Changes Over the Years")
   plot1 <- ggplot(data = rain_temp_city_data) +
@@ -116,15 +106,6 @@ output$rain_temp_plot <- renderPlotly({
   ggplotly(plot1) 
   
   })
-
-output$pick_graph <- renderPlotly({
-  title <- paste0("Temporary Title")
-  plot1 <- ggplot(rain_temp_city_data) +
-    geom_line(aes_string(x = "Year", y = "Perth_Rainfall_mm")) +
-    geom_line(aes_string(x = "Year", y = "Sydney_Rainfall_mm")) +
-    geom_line(aes_string(x = "Year", y = "Darwin_Rainfall_mm")) +
-    geom_line(aes_string(x = "Year", y = "Perth_Temperature_"))
-})
 
 }
 
