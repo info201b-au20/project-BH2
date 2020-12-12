@@ -3,7 +3,9 @@ library(markdown)
 library(shinythemes)
 library(leaflet)
 ## Work on respective portions here
-
+bom_data <- read.csv("bom_values_numbers.csv")
+fire_data <- read.csv("fire_archive_M6_169855.csv")
+nasa_modis_brightness <- read_csv("fire_archive_M6_169855.csv")
 ##Milli
 intro_panel<-tabPanel(
   h4("Introduction", style = "color: #591a0c"),
