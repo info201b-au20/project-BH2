@@ -11,7 +11,7 @@ intro_panel<-tabPanel(
   sidebarLayout(
     sidebarPanel(
       h3("Variable Analysis", style = "color: #a84632;"),
-      h4includeMarkdown("variable.md"),
+      h4(includeMarkdown("variable.md")),
       img(src='blacksaturday.jpg', height = "60%", width = "60%")
     ),
     mainPanel(
