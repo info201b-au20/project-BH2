@@ -74,38 +74,38 @@ variables_rain <- list(
   "Darwin Rainfall (mm)" = "Darwin_Rainfall_mm"
 )
 
-y_input <- selectInput(
-  inputId = "y_var",
-  label = "Choices",
-  choices = variables_temp,
+y_input_rain <- selectInput(
+  inputId = "y_var_rain",
+  label = "Data For Rainfall Changes",
+  choices = variables_rain,
   HTML('<center><img src="rain_16x9.jpg"></center>')
 )
 
-date_input <-  sliderInput(
-  "dates", 
-  label = h3("Date range"),
-  min = 1950,
-  max = 2019,
-  value = 1975
+y_input_temp <- selectInput(
+  inputId = "y_var_temp",
+  label = "Data For Temperature Changes",
+  choices = variables_temp,
 )
+
 
 interactive_panel_2 <- tabPanel(
   h4("Rain and Temperature Change", style = "color: #591a0c"),
   sidebarLayout(
     sidebarPanel(
-      h1("Input section"),
-      y_input,
-      date_input
+      h1("Choices"),
+      y_input_temp,
+      y_input_rain
     ),
     mainPanel(
       h1("Temperature and Rainfall Changes in Australia over Time"),
       tabsetPanel(
         tabPanel(
           h4("Temperature Changes in Australia Over Time", style = "color: #a84632;"),
-          plotlyOutput("rain_temp_plot"),
+          plotlyOutput("temp_plot"),
         ),
         tabPanel(
-          h4("Rainfall Changes in Australia Over Time")
+          h4("Rainfall Changes in Australia Over Time"),
+          plotlyOutput("rain_plot")
         ),
         h4("Chart Findings", style = "color: #a84632;"),
         p("Here we can see how rainfall has changed over the years in Australia. A notable change is that the 

@@ -47,7 +47,7 @@ output$brightness_map <- renderLeaflet({
 # Select Rainfall or Temperature Plot
 
 # Interactive panel 2
-output$rain_temp_plot <- renderPlotly({
+output$temp_plot <- renderPlotly({
   
   # City Rain Charts
   syd_rain_chart <- bom_data %>% 
@@ -93,12 +93,10 @@ output$rain_temp_plot <- renderPlotly({
                       merge(dar_rain_chart, 
                             merge(dar_temp_chart, 
                                   merge(syd_rain_chart, syd_temp_chart)))))
-  rain_temp_city_data <- rain_temp_city_data %>% 
-    filter(Year <= 1973) 
   
-  title <- paste0("Weather and Temperature Changes Over the Years")
+  title <- paste0("Temperature Changes Over the Years")
   plot1 <- ggplot(data = rain_temp_city_data) +
-    geom_line(mapping = aes_string(x = "Year", y = input$y_var)) +
+    geom_line(mapping = aes_string(x = "Year", y = input$y_var_temp)) +
     ggtitle("Measures of Climate Change in Australia
             Over Time") +
     labs(y = "Measure of Climate Change", x = "Years") +
@@ -106,6 +104,17 @@ output$rain_temp_plot <- renderPlotly({
   ggplotly(plot1) 
   
   })
+
+output$rain_plot <- renderPlotly({
+  title <- paste0("Rainfall Changes Over the Years")
+  plot1 <- ggplot(data = rain_temp_city_data) +
+    geom_line(mapping = aes_string(x = "Year", y = input$y_var_rain)) +
+    ggtitle("Measures of Climate Change in Australia
+            Over Time") +
+    labs(y = "Measure of Climate Change", x = "Years") +
+    theme_economist()
+  ggplotly(plot1) 
+})
 
 }
 
