@@ -10,13 +10,14 @@ intro_panel<-tabPanel(
   h4("Introduction"),
   sidebarLayout(
     sidebarPanel(
-      h3("Variable Analysis")
-      # includeMarkdown("variable.md")
+      h3("Variable Analysis"),
+      # includeMarkdown("variable.md"),
+      img(src='blacksaturday.jpg', height = "60%", width = "60%")
     ),
     mainPanel(
         h1("How the Changing Climate Has Impacted Wildfires in Australia"),
         img(src='modis_scan.jpg', height = "60%", width = "60%"),
-        h4(includeMarkdown("intro.md")),
+        h4(includeMarkdown("intro.md"))
       )
     )
 )
@@ -105,11 +106,12 @@ conclusion_panel<-tabPanel(
       After creating our graphs, we reached three major conclusions, which support our hypothesis and hopefully relay the severity of 
       the issue and compel both people and governmental entities to take decisive policy action."), 
     h4("Point One"),
-    p("Our map exhibits how the range of where wildfires have been historically has changed and is growing. 
+    p("Our 'fire brightness/intensity' map exhibits how the range of where wildfires have been historically has changed and is growing. 
       It shows how the fires have moved into big cities where they were previously isolated in the grasslands and how there are 
       new clusters of fires in the middle of Australia where there previously were none. This takeaway is especially significant because
       it shows the increasing magnitude and range of bushfires and has negative implications for the many people who have been and will be displaced
       due to the fire's change in location and intensity."),
+    img(src='fireevolution.jpg', height = "60%", width = "60%"),
     h4("Point Two"),
     p("Average yearly rainfall over time is decreasing across all three cities that we measured in Australia.
       In 1950, the yearly rainfall in Sydney averaged out at 1750.8mm---in 2019, it was a mere 984.1mm, indicating a decrease of 766.7 mm 
@@ -117,6 +119,7 @@ conclusion_panel<-tabPanel(
       in all three sites of interest (which were chosen due to their vastly different geospatial locations). The decrease in rainfall is concerning 
       because with less rain, the land grows more arid and dry, making the bush more susceptible to catching fire and increasing the likelihood of 
       drought and bushfire."),
+    img(src='rainfall.jpg', height = "60%", width = "60%"),
     h4("Point Three"),
     p("Average temperature over time is increasing (and appears to be inversely correlated with mean rainfall although further study is needed)
        In Darwin, in 1950, the mean temperature observed was 31.3 degrees Celcius. By 2019, it had risen to 33.Perth followed a similar trend, with a mean yearly temperature of 23.4 degrees Celcius 
@@ -124,6 +127,7 @@ conclusion_panel<-tabPanel(
        is deeply concerning as they result in drought and heat waves, which contribute to the prevalence of bushfires. 
        Additionally, the temperature is projected to rise another two degrees globally by 2090, which would set off a chain of adverse events
        such as flooding, extreme drought, water scarcity and rise in zoonotic disease. "),
+    img(src='temp.png', height = "60%", width = "60%"),
     h4("Final Thought"),
     p("In conclusion, climate change has very real negative impacts for everyone and everything---whether it be flora, fauna, humans or the environment at large.
       Our project used Australia as a case study to show how the impacts of climate change have increased 
