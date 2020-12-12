@@ -1,10 +1,4 @@
 # Load libraries so they are available
-library("shiny")
-library("ggplot2")
-library("leaflet")
-library("plotly")
-library("ggthemes")
-library("readr")
 # Read data file
 bom_data <- read.csv("bom_values_numbers.csv")
 fire_data <- read.csv("fire_archive_M6_169855.csv")
@@ -79,19 +73,19 @@ output$rain_temp_plot <- renderPlotly({
     filter(City == "Sydney") %>% 
     select(Year, Temperature_C)
   names(syd_temp_chart)[names(syd_temp_chart) 
-                        == "Temperature_C"] <- "Sydney_Temperature_mm"
+                        == "Temperature_C"] <- "Sydney_Temperature_C"
   
   perth_temp_chart <- bom_data %>% 
     filter(City == "Perth") %>% 
     select(Year, Temperature_C)
   names(perth_temp_chart)[names(perth_temp_chart) 
-                        == "Temperature_C"] <- "Perth_Temperature_mm"
+                        == "Temperature_C"] <- "Perth_Temperature_C"
   
   dar_temp_chart <- bom_data %>% 
     filter(City == "Darwin") %>% 
     select(Year, Temperature_C)
   names(dar_temp_chart)[names(dar_temp_chart) 
-                        == "Temperature_C"] <- "Darwin_Temperature_mm"
+                        == "Temperature_C"] <- "Darwin_Temperature_C"
   
   # Combine Data Frames
   rain_temp_city_data <- merge(perth_rain_chart, 
@@ -100,7 +94,7 @@ output$rain_temp_plot <- renderPlotly({
                             merge(dar_temp_chart, 
                                   merge(syd_rain_chart, syd_temp_chart)))))
   
-  title <- paste0("Temporary Title")
+  title <- paste0("Weather and Temperature Changes Over the Years")
   plot1 <- ggplot(data = rain_temp_city_data) +
     geom_line(mapping = aes_string(x = "Year", y = input$y_var)) +
     ggtitle("Measures of Climate Change in Australia
@@ -109,10 +103,16 @@ output$rain_temp_plot <- renderPlotly({
     theme_economist()
   ggplotly(plot1) 
   
-  # Add last function to compare. Create 6 geom_line plots with color input 
-  # as a function that returns true for dark line and false for opaque line
-  
   })
+
+output$pick_graph <- renderPlotly({
+  title <- paste0("Temporary Title")
+  plot1 <- ggplot(rain_temp_city_data) +
+    geom_line(aes_string(x = "Year", y = "Perth_Rainfall_mm")) +
+    geom_line(aes_string(x = "Year", y = "Sydney_Rainfall_mm")) +
+    geom_line(aes_string(x = "Year", y = "Darwin_Rainfall_mm")) +
+    geom_line(aes_string(x = "Year", y = "Perth_Temperature_"))
+})
 
 }
 

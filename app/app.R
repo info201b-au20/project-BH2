@@ -5,6 +5,10 @@ library("dplyr")
 library("markdown")
 library("shinyWidgets")
 library("leaflet")
+library("plotly")
+library("readr")
+library("markdown")
+library("shinythemes")
 
 
 # Use source() to execute the `app_ui.R` and `app_server.R` files. These will

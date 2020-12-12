@@ -1,8 +1,4 @@
-library(shiny)
-library(ggplot2)
-library(dplyr)
-library(markdown)
-library(shinythemes)
+
 ## Work on respective portions here
 
 ##Milli
@@ -70,9 +66,9 @@ y_input <- selectInput(
     "Sydney Rainfall (mm)" = "Sydney_Rainfall_mm",
     "Perth Rainfall (mm)" = "Perth_Rainfall_mm",
     "Darwin Rainfall (mm)" = "Darwin_Rainfall_mm",
-    "Sydney Temperature (Celsius)" = "Sydney_Temperature_mm",
-    "Perth Temperature (Celsius)" = "Perth_Temperature_mm",
-    "Darwin Temperature (Celsius)" = "Darwin_Temperature_mm"
+    "Sydney Temperature (Celsius)" = "Sydney_Temperature_C",
+    "Perth Temperature (Celsius)" = "Perth_Temperature_C",
+    "Darwin Temperature (Celsius)" = "Darwin_Temperature_C"
   )
 )
 
