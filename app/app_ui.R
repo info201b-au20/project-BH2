@@ -10,8 +10,8 @@ intro_panel<-tabPanel(
   h4("Introduction", style = "color: #591a0c"),
   sidebarLayout(
     sidebarPanel(
-      h3("Variable Introduction", style = "color: #a84632;"),
-      # includeMarkdown("variable.md"),
+      h3("Variable Analysis", style = "color: #a84632;"),
+      h4includeMarkdown("variable.md"),
       img(src='blacksaturday.jpg', height = "60%", width = "60%")
     ),
     mainPanel(
@@ -99,7 +99,7 @@ conclusion_panel<-tabPanel(
     of the wildfires in Australia and the various measures of climate change that have impacted
       those wildfires. We researched our domain thoroughly and found that climate change increases 
       the mean temperature over time, resulting in dry land that burns easily and that heat waves happen more frequently
-      and for longer. We also learned that a decrease in rain can reuslt in droughts, also a 
+      and for longer. We also learned that a decrease in rain can result in droughts, also a 
       driver of wildfires. We hypothesized that the increase in wildfires and wildfire intensity (measured in brightness) was 
       the result of these factors, which are in turn the result of the climate changing.
       After creating our graphs, we reached three major conclusions, which support our hypothesis and hopefully relay the severity of 
