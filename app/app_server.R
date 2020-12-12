@@ -5,6 +5,9 @@ library("leaflet")
 library("plotly")
 library("ggthemes")
 library("readr")
+library("markdown")
+library("shinyWidgets")
+
 # Read data file
 bom_data <- read.csv("bom_values_numbers.csv")
 fire_data <- read.csv("fire_archive_M6_169855.csv")
