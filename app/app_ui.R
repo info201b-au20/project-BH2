@@ -14,7 +14,7 @@ intro_panel<-tabPanel(
       # includeMarkdown("variable.md")
     ),
     mainPanel(
-        h1("How Australian fires affect Climate Change"),
+        h1("How the Changing Climate Has Impacted Wildfires in Australia"),
         img(src='modis_scan.jpg', height = "60%", width = "60%"),
         h4(includeMarkdown("intro.md")),
       )
@@ -94,8 +94,41 @@ interactive_panel_2 <- tabPanel(
 conclusion_panel<-tabPanel(
   h4("Conclusion"),
   mainPanel(
-    p(""))
-)
+    p("We designed this project to be an exporation of both the magnitude and severity 
+    of the wildfires in Australia and the various measures of climate change that have impacted
+      those wildfires. We researched our domain thoroughly and found that climate change increases 
+      the mean temperature over time, resulting in dry land that burns easily and that heat waves happen more frequently
+      and for longer. We also learned that a decrease in rain can reuslt in droughts, also a 
+      driver of wildfires. We hypothesized that the increase in wildfires and wildfire intensity (measured in brightness) was 
+      the result of these factors, which are in turn the result of the climate changing.
+      After creating our graphs, we reached three major conclusions, which support our hypothesis and hopefully relay the severity of 
+      the issue and compel both people and governmental entities to take decisive policy action.
+      
+    1. Our map exhibits how the range of where wildfires have been historically has changed and is growing. 
+      It shows how the fires have moved into big cities where they were previously isolated in the grasslands and how there are 
+      new clusters of fires in the middle of Australia where there previously were none. This takeaway is especially significant because
+      it shows the increasing magnitude and range of bushfires and has negative implications for the many people who have been and will be displaced
+      due to the fire's change in location and intensity. 
+      
+    2. Average yearly rainfall over time is decreasing across all three cities that we measured in Australia.
+      In 1950, the yearly rainfall in Sydney averaged out at 1750.8mm---in 2019, it was a mere 984.1mm, indicating a decrease of 766.7 mm 
+      over the last 70 years. Although rainfall average does change year to year, our graph indicates that it has been decreasingly steadily
+      in all three sites of interest (which were chosen due to their vastly different geospatial locations). The decrease in rainfall is concerning 
+      because with less rain, the land grows more arid and dry, making the bush more susceptible to catching fire and increasing the likelihood of 
+      drought and bushfire.
+      
+    3. Average temperature over time is increasing (and appears to be inversely correlated with mean rainfall although further study is needed)
+       In Darwin, in 1950, the mean temperature observed was 31.3 degrees Celcius. By 2019, it had risen to 33.Perth followed a similar trend, with a mean yearly temperature of 23.4 degrees Celcius 
+       in 1955 and a yearly mean temperature of 26.1 degrees celcius in 2019. Although a difference of 2 degrees may seem insignficant, the trend of rising temperatures
+       is deeply concerning as they result in drought and heat waves, which contribute to the prevalence of bushfires. 
+       Additionally, the temperature is projected to rise another two degrees globally by 2090, which would set off a chain of adverse events
+       such as flooding, extreme drought, water scarcity and rise in zoonotic disease. 
+      
+      In conclusion, climate change has very real negative impacts for everyone and everything---whether it be flora, fauna, humans or the environment at large.
+      Our project used Australia as a case study to show how the impacts of climate change have increased 
+      the range and magnitude of forest fires and contributed to conditions that negatively exacerbate the likelihood of future fires, such as drought and heat waves brought on by rising 
+      temperature and decreasing rainfall.
+      "))
 
 ## Final UI
 ui <- navbarPage(theme = shinytheme("journal"),
