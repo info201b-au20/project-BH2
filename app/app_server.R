@@ -1,4 +1,16 @@
 # Load libraries so they are available
+<<<<<<< HEAD
+=======
+library("shiny")
+library("ggplot2")
+library("leaflet")
+library("plotly")
+library("ggthemes")
+library("readr")
+library("markdown")
+library("shinyWidgets")
+
+>>>>>>> 748927e469636cacca3b4bbd280c7e0be203c5d5
 # Read data file
 bom_data <- read.csv("bom_values_numbers.csv")
 fire_data <- read.csv("fire_archive_M6_169855.csv")

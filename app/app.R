@@ -2,6 +2,7 @@
 library("shiny")
 library("ggplot2")
 library("dplyr")
+<<<<<<< HEAD
 library("markdown")
 library("shinyWidgets")
 library("leaflet")
@@ -10,6 +11,8 @@ library("readr")
 library("markdown")
 library("shinythemes")
 
+=======
+>>>>>>> 748927e469636cacca3b4bbd280c7e0be203c5d5
 
 # Use source() to execute the `app_ui.R` and `app_server.R` files. These will
 # define the UI value and server function respectively.

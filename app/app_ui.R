@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 
+=======
+library(shiny)
+library(markdown)
+library(shinythemes)
+library(leaflet)
+>>>>>>> 748927e469636cacca3b4bbd280c7e0be203c5d5
 ## Work on respective portions here
 
 ##Milli
@@ -26,7 +33,7 @@ interactive_panel_1 <- tabPanel(
   h4("Fire Brightness/Intensity", style = "color: #591a0c"),
   h2("Taken from NASA's MODIS Satellite", style = "color: #a84632;"),
   sidebarPanel(
-    titlePanel("Specify your brightness map data"),
+    titlePanel("Pick date to explore"),
     sliderInput(inputId = "acq_date",
                 label = "Peak Dates: June 2019 - May 2020",
                 min = as.Date("2019-06-01","%Y-%m-%d"),
@@ -36,7 +43,8 @@ interactive_panel_1 <- tabPanel(
     checkboxGroupInput(inputId = "daynight", 
                        label = "Check day (D)/night (N) or both",
                        choices = list("D", "N"), 
-                       selected = list("D", "N"))
+                       selected = list("D", "N")),
+    p("(Caveat: Red is dimmer, Yellow is Brighter. Majority of inputs were in the ~300 range necesitating red highlights.)")
   ),
   mainPanel(
     leafletOutput(outputId = "brightness_map")
@@ -66,10 +74,18 @@ y_input <- selectInput(
     "Sydney Rainfall (mm)" = "Sydney_Rainfall_mm",
     "Perth Rainfall (mm)" = "Perth_Rainfall_mm",
     "Darwin Rainfall (mm)" = "Darwin_Rainfall_mm",
+<<<<<<< HEAD
     "Sydney Temperature (Celsius)" = "Sydney_Temperature_C",
     "Perth Temperature (Celsius)" = "Perth_Temperature_C",
     "Darwin Temperature (Celsius)" = "Darwin_Temperature_C"
   )
+=======
+    "Sydney Temperature (Celsius)" = "Sydney_Temperature_mm",
+    "Perth Temperature (Celsius)" = "Perth_Temperature_mm",
+    "Darwin Temperature (Celsius)" = "Darwin_Temperature_mm"
+  ),
+  HTML('<center><img src="rain_16x9.jpg"></center>')
+>>>>>>> 748927e469636cacca3b4bbd280c7e0be203c5d5
 )
 
 interactive_panel_2 <- tabPanel(
@@ -81,7 +97,24 @@ interactive_panel_2 <- tabPanel(
     ),
     mainPanel(
       h2("Temperature and Rainfall Changes in Australia  over Time", style = "color: #a84632;"),
-      plotlyOutput("rain_temp_plot")
+      plotlyOutput("rain_temp_plot"),
+      h4("Chart Findings", style = "color: #a84632;"),
+      p("Here we can see how rainfall has changed over the years in Australia. A notable change is that the 
+        mm's of rainfall have decreased in every city over the years. This is shown by interacting with the graphic. 
+        A great example of this happening is in the City of Perth."),
+      h4("What 'sparked' the fires?", style = "color: #a84632;"),
+      p("Lightning, drought, and arson"),
+      h4("Droughts role in a bad fire season", style = "color: #a84632;"),
+      p("A likely contributor to the bushfire crisis was the ongoing drought in eastern Australia – the most severe 
+        on record for some fire affected areas. Exacerbating the effects of diminished rainfall in this drought has 
+        been a record breaking run of above average monthly temperatures, lasting 36 months to October 2019. The combination 
+        of heat and drought caused critical low fuel moisture content, with Victoria Country Fire Authority Response Controller Gavin 
+        Freeman stating that the 'underlying dryness' of the bush has led to exceptionally high fire danger."),
+      h4("Weather in Australia", style = "color: #a84632;"),
+      p("Australia's climate varies greatly throughout the eight states and territories; there 
+        are four seasons across most of the country and a wet and dry season in the tropical north. 
+        Australia's seasons are at opposite times to those in the northern hemisphere. 
+        December to February is summer; March to May is autumn; June to August is winter; and September to November is spring.")
     )
   )
 )
